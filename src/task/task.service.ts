@@ -43,4 +43,12 @@ export class TaskService {
 
         return this.GetTasks();
     }
+
+    DeleteTaskById(id: number): Observable<TaskDto[]>{
+        let index = this.tasks.findIndex(task => task.id == id);
+        if (index !== -1) {
+            this.tasks.splice(index, 1);
+        }
+        return this.GetTasks();
+    }
 }

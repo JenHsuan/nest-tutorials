@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "Get tasks",
 			"protocolProfileBehavior": {
 				"strictSSL": false,
 				"followRedirects": false,
@@ -64,6 +64,72 @@
 					"port": "3000",
 					"path": [
 						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/0?status=start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"0"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "start"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete the task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/task/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"0"
 					]
 				}
 			},
