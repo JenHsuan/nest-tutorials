@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { TaskDto } from './dto/task.dto';
 import { TaskService } from './task.service';
@@ -19,5 +19,14 @@ export class TaskController {
     @Post()
     CreateNewTask(@Body() task: TaskDto) {
         return this.taskService.CreateNewTask(task);
+    }
+
+    @Put(':id')
+    UpdateTask(@Param('id') id, @Query() query) {
+        if (query && query.status) {
+            const status = query.status;
+            return this.taskService.UpdateTask(id, status);    
+        }
+        return this.taskService.GetTasks();
     }
 }
