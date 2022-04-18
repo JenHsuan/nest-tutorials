@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { query } from 'express';
 import { resolve } from 'path';
 import { Status, TaskDto, TaskType } from './dto/task.dto';
@@ -26,5 +26,10 @@ export class TaskController {
     UpdateTask(@Param('id') id, @Query() query) {
         const status = query.status;
         return this.taskService.UpdateTask(id, status);
+    }
+
+    @Delete(':id')
+    DeleteTask(@Param('id') id) {
+        return this.taskService.DeleteTaskById(id);
     }
 }
