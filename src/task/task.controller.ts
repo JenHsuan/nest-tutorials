@@ -1,19 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { resolve } from 'path';
 import { Status, TaskDto, TaskType } from './dto/task.dto';
+import { TaskService } from './task.service';
 
 @Controller('task')
 export class TaskController {
+    constructor(private taskService: TaskService){}
     @Get()
     list(): Promise<TaskDto[]> {
-        return new Promise((resolve) => {
-            setTimeout(function(){
-                resolve([Object.assign(new TaskDto(), {
-                    id: 0,
-                    status: Status.COMPLETED,
-                    taskType: TaskType.REGULAR_MAIL
-                })]);
-            }, 250);
-        });
+        return this.taskService.GetTasks();
+    }
+
+    @Get(':id')
+    getTaskById(@Param('id') id): Promise<TaskDto> {
+        return this.taskService.GetTaskById(id);
     }
 }
