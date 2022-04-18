@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { resolve } from 'path';
 import { Status, TaskDto, TaskType } from './dto/task.dto';
 import { TaskService } from './task.service';
@@ -14,5 +14,10 @@ export class TaskController {
     @Get(':id')
     getTaskById(@Param('id') id): Promise<TaskDto> {
         return this.taskService.GetTaskById(id);
+    }
+
+    @Post()
+    CreateNewTask(@Body() task: TaskDto) {
+        return this.taskService.CreateNewTask(task);
     }
 }

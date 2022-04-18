@@ -31,4 +31,9 @@ export class TaskService {
             }, 250)
         });
     }
+
+    CreateNewTask(task: Omit<TaskDto, 'id'>): Promise<TaskDto[]> {
+        this.tasks.push(Object.assign(new TaskDto(), task, {id: this.tasks.length}));
+        return this.GetTasks();
+    }
 }
