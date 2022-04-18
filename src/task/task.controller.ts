@@ -1,9 +1,11 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { query } from 'express';
 import { resolve } from 'path';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Status, TaskDto, TaskType } from './dto/task.dto';
 import { TaskService } from './task.service';
 
+@UseGuards(JwtAuthGuard)
 @Controller('task')
 export class TaskController {
     constructor(private taskService: TaskService){}
