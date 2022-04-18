@@ -36,4 +36,15 @@ export class TaskService {
         this.tasks.push(Object.assign(new TaskDto(), task, {id: this.tasks.length}));
         return this.GetTasks();
     }
+
+    UpdateTask(id: number, status: Status) {
+        let oldTask = this.tasks.find(task => task.id == id);
+        if (oldTask) {
+            oldTask = Object.assign(oldTask, {
+                status: status
+            })
+        }
+
+        return this.GetTasks();
+    }
 }
