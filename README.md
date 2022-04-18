@@ -3,7 +3,9 @@
 * CRUD
 * Authentication
 * Authorization
+* Swagger
 * Testing with Postman
+
 ## Usages
 * preparations
 ```
@@ -14,3 +16,5 @@ npm install
 ```
 npm run start
 ```
+
+* open documents: visit http://localhost:3000/docs
