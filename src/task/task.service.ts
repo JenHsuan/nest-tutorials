@@ -27,4 +27,9 @@ export class TaskService {
     GetTaskById(id: number): Observable<TaskDto | null> {
         return of(this.Tasks.find(task => task.id == id)).pipe(delay(200));
     }
+
+    CreateNewTask(task: TaskDto): Observable<TaskDto[]> {
+        this.tasks.push(Object.assign(new TaskDto(), task, {id: this.tasks.length}));
+        return this.GetTasks();
+    }
 }
