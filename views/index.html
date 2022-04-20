@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;700&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    html, body {
+        height: 100%;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        background-color: #003;
+    }
+    .wrap {
+        width: 1200px;
+        display: flex;
+        margin: auto;
+    }
+    .item {
+        width: 368px;
+        margin: 15px;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        transition: .5s;
+    }
+    .item img {
+        width: 100%;
+        vertical-align: middle;
+    }
+    .item h2 {
+        border-bottom: 1px solid #888;
+        padding-bottom: 0.3em;
+        margin-bottom: 0.3em;
+        font-weight: 700;
+    }
+    .item p {
+        line-height: 1.6;
+    }
+    .item .txt {
+        padding: 20px;
+        position: relative;
+    }
+    .item .txt:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 0;
+        border-top: 50px solid transparent;
+        border-left: 184px solid #fff;
+        border-right: 184px solid #fff;
+        transform: translateY(-100%);
+    }
+    .item:hover {
+        transform: translateY(-50px);
+    }
+    .item:hover .txt{
+        background-image: linear-gradient(0deg, #fb8076, #feb85d)
+    }
+    .item:hover .txt:before{
+        border-left: 184px solid #feb85d;
+        border-right: 184px solid #feb85d;
+    }
+    .item:hover h2 {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+    .item:hover p{
+        color: #fff;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item">
+            <img src='http://picsum.photos/300/300?random=80' alt=''>
+            <div class="txt">
+                <h2>Read an Article a Day</h2>
+                <p>There are many information around us today. To improve ourselves, we just need to move a further move every day. Daily learning provides articles, challenges, or videos to people who are also self-learner for programming</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src='http://picsum.photos/300/300?random=810' alt=''>
+            <div class="txt">
+                <h2>1日記事を読む</h2>
+                <p>今日、私たちの周りにはたくさんの情報があります。自分自身を向上させるために、毎日少しずつ進歩が必要です。毎日の学習は、プログラミングの自己学習者でもある人々に記事、課題、またはビデオを提供します
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src='http://picsum.photos/300/300?random=820' alt=''>
+            <div class="txt">
+                <h2>每天閱讀一篇文章</h2>
+                <p>今天我們周圍有很多資訊。為了進步，我們需要每天前進一小步。Daily Learning提供文章，挑戰或影音給同樣自學程式語言的人
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,6 +4,7 @@
 * Authentication
 * Authorization
 * Swagger
+* Render web pages
 * Testing with Postman
 
 ## Usages
