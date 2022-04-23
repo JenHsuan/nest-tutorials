@@ -1,6 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards, UseInterceptors } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { Role } from 'src/user/dto/user.dto';
+import { RoleGuard } from 'src/user/role.guard';
 import { TaskDto } from './dto/task.dto';
 import { TaskService } from './task.service';
 
@@ -18,6 +20,7 @@ export class TaskController {
         return this.taskService.GetTaskById(id);
     }
 
+    @UseGuards(RoleGuard(Role.Admin))
     @Post()
     CreateNewTask(@Body() task: TaskDto) {
         return this.taskService.CreateNewTask(task);

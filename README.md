@@ -2,6 +2,7 @@
 ## Contents
 * CRUD
 * Authentication
+* Authorization
 * Testing with Postman
 ## Usages
 * preparations

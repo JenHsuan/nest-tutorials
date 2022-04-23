@@ -27,7 +27,7 @@ export class AuthService {
     
     //exposed API
     login(user: UserDto): Observable<any> {
-        const payload = { username: user.username, sub: user.userId };
+        const payload = { username: user.username, sub: user.userId, role: user.role };
         return of({
           access_token: this.jwtService.sign(payload),
         });

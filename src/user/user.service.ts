@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
-import { UserDto } from './dto/user.dto';
+import { Role, UserDto } from './dto/user.dto';
 
 @Injectable()
 export class UserService {
@@ -9,6 +9,13 @@ export class UserService {
             userId: 1,
             username: 'username',
             password: 'password',
+            role: Role.Admin
+        }),
+        Object.assign(new UserDto(), {
+            userId: 2,
+            username: 'username2',
+            password: 'password2',
+            role: Role.User
         })
     ];
 
