@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { Observable } from 'rxjs';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { TaskDto } from './dto/task.dto';
 import { TaskService } from './task.service';
 
+@UseGuards(JwtAuthGuard)
 @Controller('task')
 export class TaskController {
     constructor(private taskService: TaskService){}
