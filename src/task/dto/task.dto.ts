@@ -14,17 +14,27 @@ export enum TaskType {
 }
 
 export class TaskDto {
+    @ApiProperty({
+        type: Number,
+        description: 'ID of the task',
+    })
     id: number;
+
+    // get details() {
+    //     return this.id;
+    // }
     @IsEnum(Status)
     @ApiProperty({
-        enum: Object.values(Status)
+        enum: Object.values(Status),
+    required: false,
     })
     status: Status = Status.INITIAL;
-    
+
     @IsNotEmpty()
     @IsEnum(TaskType)
     @ApiProperty({
-        enum: Object.values(TaskType)
+    enum: Object.values(TaskType),
+    required: false,
     })
     taskType: TaskType;
 }
